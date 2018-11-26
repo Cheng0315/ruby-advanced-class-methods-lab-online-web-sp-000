@@ -8,6 +8,14 @@ class Song
     song
   end
 
+  def self.all
+    @@all
+  end
+
+  def save
+    self.class.all << self
+  end
+
   def self.new_by_name(name)
     song = self.new
     song.name=(name)
@@ -53,12 +61,8 @@ class Song
     song.save << song
   end
 
-  def self.all
-    @@all
-  end
-
-  def save
-    self.class.all << self
+  def destroy_all
+    @@all.clear
   end
 
 end
