@@ -44,8 +44,13 @@ class Song
     song
   end
 
-  def create_from_filename
-
+  def self.create_from_filename(file_name)
+    song = self.new
+    artistname = file_name.scan(/^.+[-]/).join
+    song_name = file_name.scan(/-.+[^\.mp3]/).join
+    song.name=(song_name.slice(2, song_name.length))
+    song.artist_name=(artistname.slice(0,artistname.length - 2))
+    song.save << song
   end
 
   def self.all
