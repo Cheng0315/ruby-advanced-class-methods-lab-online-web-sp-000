@@ -41,6 +41,7 @@ class Song
     song_name = file_name.scan(/-.+[^\.mp3]/).join("- ")
     song.name=(song_name)
     song.artist_name=(artistname)
+    song
   end
 
   def self.all
