@@ -40,7 +40,7 @@ class Song
     artist_name = file_name.match(/^\w+\s\w+/)
     song_name = file_name.scan(/-.+[^\.mp3]/).join("- ")
     song.name=(song_name)
-    song.artist=(artist_name)
+    song.artist_name=(artist_name)
   end
 
   def self.all
