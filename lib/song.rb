@@ -37,7 +37,7 @@ class Song
 
   def self.new_from_filename(file_name)
     song = self.new
-    artistname = file_name.match(/^\w+\s\w+/)
+    artistname = file_name.scan(/^.+[-]/).join(" -")
     song_name = file_name.scan(/-.+[^\.mp3]/).join("- ")
     song.name=(song_name.slice(2, song_name.length))
     song.artist_name=(artistname)
